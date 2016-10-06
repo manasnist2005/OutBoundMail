@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{413379C9-93DE-4E05-BA04-C2C9B36D65A9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OutBoundMail</RootNamespace>
+    <AssemblyName>OutBoundMail</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tridion.AudienceManagement.API, Version=7.1.0.1296, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Tridion.AudienceManagement.API.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EMail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\SmartTargetService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.datasvcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Subscription.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="bin\Debug\OutBoundMail.exe.config" />
+    <None Include="bin\Debug\OutBoundMail.vshost.exe.config" />
+    <None Include="bin\Debug\OutBoundMail.vshost.exe.manifest" />
+    <None Include="packages.config" />
+    <None Include="Service References\SmartTargetService\service.edmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\config\cd_ambient_conf.xml" />
+    <Content Include="bin\config\cd_audience_manager_conf.xml" />
+    <Content Include="bin\config\cd_dynamic_conf.xml" />
+    <Content Include="bin\config\cd_licenses.xml" />
+    <Content Include="bin\config\cd_storage_conf.xml" />
+    <Content Include="bin\config\logback.xml" />
+    <Content Include="bin\config\smarttarget.referrers.xml" />
+    <Content Include="bin\config\smarttarget_conf.xml" />
+    <Content Include="bin\Debug\DD4T.ContentModel.Contracts.dll" />
+    <Content Include="bin\Debug\DD4T.ContentModel.dll" />
+    <Content Include="bin\Debug\DD4T.Factories.dll" />
+    <Content Include="bin\Debug\DD4T.LogWrappers.Entlib.dll" />
+    <Content Include="bin\Debug\DD4T.LogWrappers.Log4Net.dll" />
+    <Content Include="bin\Debug\DD4T.Mvc.dll" />
+    <Content Include="bin\Debug\DD4T.Providers.SDLTridion2013.dll" />
+    <Content Include="bin\Debug\DD4T.Utils.dll" />
+    <Content Include="bin\Debug\DD4T.Web.dll" />
+    <Content Include="bin\Debug\netrtsn.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Ninject.dll" />
+    <Content Include="bin\Debug\OutBoundMail.exe" />
+    <Content Include="bin\Debug\OutBoundMail.pdb" />
+    <Content Include="bin\Debug\OutBoundMail.vshost.exe" />
+    <Content Include="bin\Debug\Tridion.ContentDelivery.AmbientData.dll" />
+    <Content Include="bin\Debug\Tridion.ContentDelivery.Configuration.dll" />
+    <Content Include="bin\Debug\Tridion.ContentDelivery.dll" />
+    <Content Include="bin\Debug\Tridion.ContentDelivery.Interop.dll" />
+    <Content Include="bin\Debug\Tridion.ContentDelivery.Webservice.dll" />
+    <Content Include="bin\Debug\Tridion.OutboundEmail.ContentDelivery.dll" />
+    <Content Include="bin\Debug\Tridion.OutboundEmail.ContentDelivery.JuggerNetProxies.dll" />
+    <Content Include="bin\Debug\Tridion.SmartTarget.dll" />
+    <Content Include="bin\Debug\Tridion.SmartTarget.Interop.dll" />
+    <Content Include="bin\lib\activation.jar" />
+    <Content Include="bin\lib\antlr.jar" />
+    <Content Include="bin\lib\aopalliance.jar" />
+    <Content Include="bin\lib\asm.jar" />
+    <Content Include="bin\lib\audiencemanager_cartridge.jar" />
+    <Content Include="bin\lib\cd_ambient.jar" />
+    <Content Include="bin\lib\cd_broker.jar" />
+    <Content Include="bin\lib\cd_cache.jar" />
+    <Content Include="bin\lib\cd_core.jar" />
+    <Content Include="bin\lib\cd_datalayer.jar" />
+    <Content Include="bin\lib\cd_deployer.jar" />
+    <Content Include="bin\lib\cd_dynamic.jar" />
+    <Content Include="bin\lib\cd_linking.jar" />
+    <Content Include="bin\lib\cd_model.jar" />
+    <Content Include="bin\lib\cd_odata.jar" />
+    <Content Include="bin\lib\cd_odata_types.jar" />
+    <Content Include="bin\lib\cd_preview_ambient.jar" />
+    <Content Include="bin\lib\cd_preview_web.jar" />
+    <Content Include="bin\lib\cd_session.jar" />
+    <Content Include="bin\lib\cd_tcdl.jar" />
+    <Content Include="bin\lib\cd_undo.jar" />
+    <Content Include="bin\lib\cd_upload.jar" />
+    <Content Include="bin\lib\cd_wai.jar" />
+    <Content Include="bin\lib\cd_wrapper.jar" />
+    <Content Include="bin\lib\commons-codec.jar" />
+    <Content Include="bin\lib\commons-collections.jar" />
+    <Content Include="bin\lib\commons-dbcp.jar" />
+    <Content Include="bin\lib\commons-discovery.jar" />
+    <Content Include="bin\lib\commons-fileupload.jar" />
+    <Content Include="bin\lib\commons-httpclient.jar" />
+    <Content Include="bin\lib\commons-io.jar" />
+    <Content Include="bin\lib\commons-lang.jar" />
+    <Content Include="bin\lib\commons-logging.jar" />
+    <Content Include="bin\lib\commons-pool.jar" />
+    <Content Include="bin\lib\customCatidge_UserAge.jar" />
+    <Content Include="bin\lib\dom4j.jar" />
+    <Content Include="bin\lib\easylicense.jar" />
+    <Content Include="bin\lib\guava.jar" />
+    <Content Include="bin\lib\hibernate-commons-annotations.jar" />
+    <Content Include="bin\lib\hibernate-core.jar" />
+    <Content Include="bin\lib\hibernate-entitymanager.jar" />
+    <Content Include="bin\lib\hibernate-jpa-2.0-api.jar" />
+    <Content Include="bin\lib\hsqldb.jar" />
+    <Content Include="bin\lib\jackson-core-asl.jar" />
+    <Content Include="bin\lib\jackson-jaxrs.jar" />
+    <Content Include="bin\lib\jackson-mapper-asl.jar" />
+    <Content Include="bin\lib\jackson-xc.jar" />
+    <Content Include="bin\lib\jasypt.jar" />
+    <Content Include="bin\lib\javassist.jar" />
+    <Content Include="bin\lib\jaxb-api.jar" />
+    <Content Include="bin\lib\jaxb-impl.jar" />
+    <Content Include="bin\lib\jboss-logging.jar" />
+    <Content Include="bin\lib\jboss-transaction-api_1.1_spec.jar" />
+    <Content Include="bin\lib\jcl-over-slf4j.jar" />
+    <Content Include="bin\lib\jdbcpool.jar" />
+    <Content Include="bin\lib\jdom.jar" />
+    <Content Include="bin\lib\jersey-client.jar" />
+    <Content Include="bin\lib\jersey-core.jar" />
+    <Content Include="bin\lib\jersey-json.jar" />
+    <Content Include="bin\lib\jersey-server.jar" />
+    <Content Include="bin\lib\jersey-servlet.jar" />
+    <Content Include="bin\lib\jettison.jar" />
+    <Content Include="bin\lib\json-smart.jar" />
+    <Content Include="bin\lib\jsr181-api.jar" />
+    <Content Include="bin\lib\logback-classic.jar" />
+    <Content Include="bin\lib\logback-core.jar" />
+    <Content Include="bin\lib\oe_profile.jar" />
+    <Content Include="bin\lib\oe_profilesync.jar" />
+    <Content Include="bin\lib\oe_tracking.jar" />
+    <Content Include="bin\lib\oe_trackingsync.jar" />
+    <Content Include="bin\lib\oe_utils.jar" />
+    <Content Include="bin\lib\oro.jar" />
+    <Content Include="bin\lib\serializer.jar" />
+    <Content Include="bin\lib\session_cartridge.jar" />
+    <Content Include="bin\lib\slf4j-api.jar" />
+    <Content Include="bin\lib\smarttarget_api_webservice.jar" />
+    <Content Include="bin\lib\smarttarget_cartridge.jar" />
+    <Content Include="bin\lib\smarttarget_core.jar" />
+    <Content Include="bin\lib\smarttarget_entitymodel.jar" />
+    <Content Include="bin\lib\spring-aop.jar" />
+    <Content Include="bin\lib\spring-asm.jar" />
+    <Content Include="bin\lib\spring-beans.jar" />
+    <Content Include="bin\lib\spring-context-support.jar" />
+    <Content Include="bin\lib\spring-context.jar" />
+    <Content Include="bin\lib\spring-core.jar" />
+    <Content Include="bin\lib\spring-expression.jar" />
+    <Content Include="bin\lib\spring-jdbc.jar" />
+    <Content Include="bin\lib\spring-orm.jar" />
+    <Content Include="bin\lib\spring-tx.jar" />
+    <Content Include="bin\lib\sqljdbc4.jar" />
+    <Content Include="bin\lib\stax-api.jar" />
+    <Content Include="bin\lib\xalan.jar" />
+    <Content Include="bin\log4net.dll" />
+    <Content Include="bin\netrtsn.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Ninject.dll" />
+    <Content Include="bin\Ninject.Web.Common.dll" />
+    <Content Include="bin\Ninject.Web.Mvc.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\Tridion.AudienceManagement.API.dll" />
+    <Content Include="bin\Tridion.ContentDelivery.AmbientData.dll" />
+    <Content Include="bin\Tridion.ContentDelivery.Configuration.dll" />
+    <Content Include="bin\Tridion.ContentDelivery.dll" />
+    <Content Include="bin\Tridion.ContentDelivery.Interop.dll" />
+    <Content Include="bin\Tridion.ContentDelivery.Webservice.dll" />
+    <Content Include="bin\Tridion.OutboundEmail.ContentDelivery.dll" />
+    <Content Include="bin\Tridion.OutboundEmail.ContentDelivery.JuggerNetProxies.dll" />
+    <Content Include="bin\Tridion.SmartTarget.dll" />
+    <Content Include="bin\Tridion.SmartTarget.Interop.dll" />
+    <Content Include="bin\WebActivator.dll" />
+    <Content Include="bin\xmogrt.dll" />
+    <Content Include="ComponentTemplate.html" />
+    <Content Include="EmailTemplate.html" />
+    <Content Include="EmailTemplate1.html" />
+    <None Include="Service References\SmartTargetService\Reference.datasvcmap">
+      <Generator>DataServicesCoreClientGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ServiceReferenceMetadataStorage Include="Service References\SmartTargetService\">
+      <Type>datasvcmap</Type>
+    </ServiceReferenceMetadataStorage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
