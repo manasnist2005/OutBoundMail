@@ -18,8 +18,8 @@ namespace OutBoundMail
             List<EmailWithHtmlContent> emails = Subscription.GetEmailContentList();
             foreach (EmailWithHtmlContent email in emails)
             {
-                if (email.eMail.Contains("@tieto.com"))
-                    SendMail("Tieto.Gadgets@tieto.com", email.eMail, email.htmlView);
+                if (email.eMail.Contains("@****.com"))
+                    SendMail("Abcd.Gadgets@****.com", email.eMail, email.htmlView);
             }
             //SendMail("Tieto.Gadgets@tieto.com", "manas.panda@tieto.com", emails[0].htmlView);
         }
@@ -36,7 +36,7 @@ namespace OutBoundMail
                 client.Port = 25;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = true;
-                client.Host = "mailrelay.tieto.com";                
+                client.Host = "mailrelay.****.com";                
                 client.Send(mail);
             }
             catch (Exception Ex)
